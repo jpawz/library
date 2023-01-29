@@ -30,11 +30,25 @@ function addBookToLibrary() {
 }
 
 function displayLibrary() {
+  clearDisplayedLibrary();
+  
   myLibrary.forEach((book) => {
     let row = libraryContainer.appendChild(document.createElement("tr"));
-    row.appendChild(document.createElement("td")).appendChild(document.createTextNode(book.title));
-    row.appendChild(document.createElement("td")).appendChild(document.createTextNode(book.author));
-    row.appendChild(document.createElement("td")).appendChild(document.createTextNode(book.pages));
-    row.appendChild(document.createElement("td")).appendChild(document.createTextNode(book.read));
+    row
+      .appendChild(document.createElement("td"))
+      .appendChild(document.createTextNode(book.title));
+    row
+      .appendChild(document.createElement("td"))
+      .appendChild(document.createTextNode(book.author));
+    row
+      .appendChild(document.createElement("td"))
+      .appendChild(document.createTextNode(book.pages));
+    row
+      .appendChild(document.createElement("td"))
+      .appendChild(document.createTextNode(book.read));
   });
+}
+
+function clearDisplayedLibrary() {
+  libraryContainer.innerHTML = "";
 }
