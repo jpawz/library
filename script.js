@@ -52,6 +52,10 @@ function displayLibrary() {
     row
       .appendChild(document.createElement("td"))
       .appendChild(document.createTextNode(book.read ? "yes" : "no"));
+    let deleteButton = document.createElement("button");
+    deleteButton.appendChild(document.createTextNode("Delete"));
+    deleteButton.addEventListener("click", () => myLibrary.splice(index, 1));
+    row.appendChild(document.createElement("td")).appendChild(deleteButton);
   });
 }
 
