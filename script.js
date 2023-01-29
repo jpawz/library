@@ -35,8 +35,11 @@ function addBookToLibrary() {
 function displayLibrary() {
   clearDisplayedLibrary();
 
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     let row = libraryContainer.appendChild(document.createElement("tr"));
+    row
+      .appendChild(document.createElement("td"))
+      .appendChild(document.createTextNode(index + 1));
     row
       .appendChild(document.createElement("td"))
       .appendChild(document.createTextNode(book.title));
