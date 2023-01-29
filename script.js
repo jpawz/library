@@ -54,11 +54,16 @@ function displayLibrary() {
       .appendChild(document.createTextNode(book.read ? "yes" : "no"));
     let deleteButton = document.createElement("button");
     deleteButton.appendChild(document.createTextNode("Delete"));
-    deleteButton.addEventListener("click", () => myLibrary.splice(index, 1));
+    deleteButton.addEventListener("click", () => deleteBook(index));
     row.appendChild(document.createElement("td")).appendChild(deleteButton);
   });
 }
 
 function clearDisplayedLibrary() {
   libraryContainer.innerHTML = "";
+}
+
+function deleteBook(id) {
+    myLibrary.splice(id, 1);
+    displayLibrary();
 }
