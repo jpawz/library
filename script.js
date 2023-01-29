@@ -48,7 +48,7 @@ function displayLibrary() {
       .appendChild(document.createTextNode(book.pages));
     row
       .appendChild(document.createElement("td"))
-      .appendChild(document.createTextNode(book.read));
+      .appendChild(document.createTextNode(book.read ? "yes" : "no"));
   });
 }
 
