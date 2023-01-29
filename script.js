@@ -4,6 +4,7 @@ const titleInput = document.getElementById("title");
 const authorInput = document.getElementById("author");
 const pagesInput = document.getElementById("pages");
 const readInput = document.getElementById("read");
+const libraryContainer = document.getElementById("library");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -29,5 +30,11 @@ function addBookToLibrary() {
 }
 
 function displayLibrary() {
-  myLibrary.forEach((book) => console.log(book.info()));
+  myLibrary.forEach((book) => {
+    let row = libraryContainer.appendChild(document.createElement("tr"));
+    row.appendChild(document.createElement("td")).appendChild(document.createTextNode(book.title));
+    row.appendChild(document.createElement("td")).appendChild(document.createTextNode(book.author));
+    row.appendChild(document.createElement("td")).appendChild(document.createTextNode(book.pages));
+    row.appendChild(document.createElement("td")).appendChild(document.createTextNode(book.read));
+  });
 }

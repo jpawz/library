@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,9 @@
     <link rel="stylesheet" href="style.css">
     <title>Library</title>
 </head>
+
 <body>
-    <form class="book-form">
+    <form class="book-form" onclick="addBookToLibrary()" onsubmit="return false">
         <label for="title">Title:</label>
         <input type="text" name="title" id="title" required>
 
@@ -28,6 +30,19 @@
 
         <button type="submit">Save to library</button>
     </form>
-    
+    <button onclick="displayLibrary()">Show library</button>
+    <table>
+        <thead>
+            <td>Title</td>
+            <td>Author</td>
+            <td>Pages</td>
+            <td>Read</td>
+        </thead>
+        <tbody id="library">
+
+        </tbody>
+    </table>
+
 </body>
+
 </html>
