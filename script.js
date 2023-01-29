@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+const form = document.getElementById("form");
 const titleInput = document.getElementById("title");
 const authorInput = document.getElementById("author");
 const pagesInput = document.getElementById("pages");
@@ -20,18 +21,20 @@ Book.prototype.info = function () {
 };
 
 function addBookToLibrary() {
-  const book = new Book(
-    titleInput.value,
-    authorInput.value,
-    pagesInput.value,
-    readInput.checked
-  );
-  myLibrary.push(book);
+  if (form.checkValidity()) {
+    const book = new Book(
+      titleInput.value,
+      authorInput.value,
+      pagesInput.value,
+      readInput.checked
+    );
+    myLibrary.push(book);
+  }
 }
 
 function displayLibrary() {
   clearDisplayedLibrary();
-  
+
   myLibrary.forEach((book) => {
     let row = libraryContainer.appendChild(document.createElement("tr"));
     row
