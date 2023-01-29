@@ -55,7 +55,13 @@ function displayLibrary() {
     let deleteButton = document.createElement("button");
     deleteButton.appendChild(document.createTextNode("Delete"));
     deleteButton.addEventListener("click", () => deleteBook(index));
-    row.appendChild(document.createElement("td")).appendChild(deleteButton);
+
+    let readButton = document.createElement("button");
+    readButton.appendChild(document.createTextNode("Change read status"));
+    readButton.addEventListener("click", () => changeReadStatus(index));
+    let actions = row.appendChild(document.createElement("td"));
+    actions.appendChild(deleteButton);
+    actions.appendChild(readButton);
   });
 }
 
@@ -64,6 +70,11 @@ function clearDisplayedLibrary() {
 }
 
 function deleteBook(id) {
-    myLibrary.splice(id, 1);
-    displayLibrary();
+  myLibrary.splice(id, 1);
+  displayLibrary();
+}
+
+function changeReadStatus(id) {
+  myLibrary[id].read = !myLibrary[id].read;
+  displayLibrary();
 }
