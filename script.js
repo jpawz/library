@@ -7,18 +7,20 @@ const pagesInput = document.getElementById("pages");
 const readInput = document.getElementById("read");
 const libraryContainer = document.getElementById("library");
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 
-Book.prototype.info = function () {
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${
-    this.read ? "already read" : "not yet read"
-  }`;
-};
+  info() {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${
+      this.read ? "already read" : "not yet read"
+    }`;
+  }
+}
 
 function addBookToLibrary() {
   if (form.checkValidity()) {
